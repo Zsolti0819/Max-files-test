@@ -7,11 +7,10 @@ import java.nio.file.Files;
 
 public class Main {
 
-    private static final int NUMBER_OF_FILES = 10000;
     private static File[] createFiles() throws IOException {
-        File[] files = new File[NUMBER_OF_FILES];
+        File[] files = new File[Constants.NUMBER_OF_FILES];
         Files.createDirectories(Constants.TXT_OUTPUT_FOLDER);
-        for (int i = 0; i < NUMBER_OF_FILES; i++) {
+        for (int i = 0; i < Constants.NUMBER_OF_FILES; i++) {
             File file = new File(Constants.TXT_OUTPUT_FOLDER + File.separator + "file_" + i + ".txt");
             if (file.createNewFile()) {
                 files[i] = file;
@@ -26,9 +25,9 @@ public class Main {
 
         String longLoremIpsum = String.valueOf(Files.readString(Constants.LOREM_FILE));
         File[] files = createFiles();
-        PrintStream[] fileWriters = new PrintStream[NUMBER_OF_FILES];
+        PrintStream[] fileWriters = new PrintStream[Constants.NUMBER_OF_FILES];
 
-        for (int i = 0; i < NUMBER_OF_FILES; i++) {
+        for (int i = 0; i < Constants.NUMBER_OF_FILES; i++) {
             // Not using try-with-resources on purpose
             try {
                 fileWriters[i] = new PrintStream(Constants.TXT_OUTPUT_FOLDER + File.separator + files[i].getName());
@@ -38,7 +37,7 @@ public class Main {
             }
         }
         // Closing all the opened files at once
-        for (int i = 0; i < NUMBER_OF_FILES; i++) {
+        for (int i = 0; i < Constants.NUMBER_OF_FILES; i++) {
             fileWriters[i].close();
         }
     }
