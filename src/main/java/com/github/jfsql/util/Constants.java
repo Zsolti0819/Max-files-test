@@ -1,4 +1,4 @@
-package com.github;
+package com.github.jfsql.util;
 
 import java.nio.file.Path;
 import lombok.experimental.UtilityClass;
@@ -10,6 +10,6 @@ public class Constants {
     public static final Path RESOURCES_PATH = Path.of(BASE_PATH, "src", "main", "resources");
     public static final Path TXT_OUTPUT_FOLDER = RESOURCES_PATH.resolve("txt");
     public static final Path LOREM_FILE = RESOURCES_PATH.resolve("lorem.txt");
-    public static final int NUMBER_OF_FILES = 1000000;
+    public static final int NUMBER_OF_FILES = 1000;
 
 }
